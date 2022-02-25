@@ -1,0 +1,83 @@
+﻿@model IEnumerable<VMPM.Models.Personas>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<br />
+<br />
+<br />
+<br />
+
+
+<div class="container">
+    <div class="row">
+
+    
+        <div class="col-lg-10"><button class="btn-primary btn-lg glyphicon glyphicon-floppy-disk"  onclick="location.href='@Url.Action("Agregar_Personas","Home")'"></button></div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-1"></div>
+        <div></div>
+    </div>
+
+</div>
+<br /><br />
+
+      <div class="jumbotron">
+
+
+
+          
+          <table class="table table-bordered">
+              <thead>
+                  <tr>
+                      <th>ID</th>
+                      <th>NOMBRE</th>
+                      <th>APELLIDO</th>
+                      <th>CEDULA</th>
+                      <th>DIRECCION</th>
+                      <th>VERIFICAR</th>
+                      <th>ACTUALIZAR</th>
+                  </tr>
+              </thead>
+              @foreach (var M in Model)
+              {
+                  <tbody>
+                      <tr>
+                          <td>@M.ID</td>
+                          <td>@M.NOMBRE</td>
+                          <td>@M.APELLIDO</td>
+                          <td>@M.CEDULA</td>
+                          <td>@M.DIRECCION</td>
+                          <td><button class="btn-block btn-success btn-sm glyphicon glyphicon glyphicon-search" onclick="location.href='@Url.Action("VisualisarEpersonas","Home", new {M.ID,M.NOMBRE,M.APELLIDO,M.CEDULA,M.DIRECCION} )'"></button></td>
+                          <td><button class="  btn-block btn-warning btn-sm glyphicon  glyphicon glyphicon-refresh " onclick="location.href='@Url.Action("Update_Personas","Home", new {M.ID,M.NOMBRE,M.APELLIDO,M.CEDULA,M.DIRECCION} )'"></button></td>
+
+                      </tr>
+                  </tbody>
+
+              }
+
+
+
+
+
+          </table>
+
+              @if (Model.Count() >0) { 
+              <nav aria-label="Page navigation example">
+                  <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="">Previous</a></li>
+                      <li class="page-item"><a class="page-link" href='@Url.Action("Filtro_Personas_Controller","Home", new { OffsetValue2 = 0})'>0</a></li>
+                      <li class="page-item"><a class="page-link" href='@Url.Action("Filtro_Personas_Controller","Home", new { OffsetValue2 = 5})'>1</a></li>
+                      <li class="page-item"><a class="page-link" href='@Url.Action("Filtro_Personas_Controller","Home", new { OffsetValue2  = 10})'>2</a></li>
+                      <li class="page-item"><a class="page-link" href='@Url.Action("Filtro_Personas_Controller","Home", new { OffsetValue2  = 15})'>3</a></li>
+                      <li class="page-item"><a class="page-link" href='@Url.Action("Filtro_Personas_Controller","Home", new { OffsetValue2  = 20})'>4</a></li>
+                      <li class="page-item"><a class="page-link" href='@Url.Action("Filtro_Personas_Controller","Home", new { OffsetValue2  = 25})'>5</a></li>
+                      <li class="page-item"><a class="page-link" href='@Url.Action("Filtro_Personas_Controller","Home", new { OffsetValue2  = 30})'>Next</a></li>
+                  </ul>
+              </nav>
+                      }
+         </div>
+                  
+

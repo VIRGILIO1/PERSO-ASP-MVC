@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Agregar_Personas";
+
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <button class="btn-danger   btn-lg  btn-lg 	glyphicon glyphicon-arrow-left" onclick="location.href='@Url.Action("Index","Home")'"></button>
+
+        </div>
+
+        <div asp-validation-summary ="ModelOnly" class="text-danger"></div>
+
+
+
+        <div class="col-lg-4">
+            <br />
+            <br />
+            <br />
+            <form action="/Home/Guardar_Personas" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nombre" name="NOMBRE" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Apellido" name="APELLIDO" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Cedula" name="CEDULA" />
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" placeholder="Direccion" name="DIRECCION"></textarea>
+                </div>
+                <br />
+                <div class="form-group">
+                    <button type="submit" class=" btn-lg btn-primary">GUARDAR</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-4"></div>
+</div>
+
+@{
+
+
+    if (ViewBag.Error)
+    {
+
+        <script>
+        alert("Este Numero de Cedula  esta Registrado")
+        </script>
+
+
+    }
+
+
+}
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
